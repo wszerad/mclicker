@@ -39,9 +39,9 @@
 <style lang="sass" rel="stylesheet/scss">
 	.upgrade {
 		background: #ff4222;
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 		padding: 10px;
-		border-radius: 10px;
+		border-radius: 2px;
 		font-weight: bold;
 
 		article {

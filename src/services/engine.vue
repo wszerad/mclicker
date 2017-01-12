@@ -12,6 +12,7 @@
 				multiplier: 1,
 				founds: 100,
 				clicked: 0,
+				clickable: true,
 				devs: [],
 				boosts: [],
 				upgrades: []

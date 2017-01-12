@@ -1,4 +1,6 @@
 <script type="text/babel">
+	import engine from '../services/engine.vue';
+
 	class Item {
 		constructor(options) {
 			this.title = options.title;
@@ -56,7 +58,7 @@
 		new Dev({
 			title: 'Fifeł',
 			text: '',
-			cost: 'Pryncypałki / 6 miesięcy',
+			cost: 'Pryncypałki / 2 godziny',
 			performance: 20,
 			realCost: 2500.16
 		}),
@@ -154,12 +156,23 @@
 			text: '',
 			cost: 'darmowa',
 			realCost: 0,
-			performance: 1,
+			performance: 105,
 			event() {
-				return '';
+				if(random(100)) {
+					engine.clickable = false;
+					setTimeout(function() {
+						engine.clickable = true;
+					}, 10000);
+
+					return 'Heh popsułeś developa, tracisz czas na naprawę';
+				}
 			}
 		})
 	];
+
+	function random(chance) {
+		return Math.random() < (chance / 100);
+	}
 
 	export default {
 		devs,

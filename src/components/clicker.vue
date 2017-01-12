@@ -1,6 +1,6 @@
 <template>
 	<div id="clicker">
-		<button type="button" class="btn btn-success" @click="code()">
+		<button type="button" class="btn btn-success" @click="code()" :disabled="!engine.clickable">
 			<p>
 				Programuj
 			</p>

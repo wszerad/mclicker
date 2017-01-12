@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38053d33-c900-4297-8272-db32824d94f1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/events.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/services/events.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/build.js" afterPath="$PROJECT_DIR$/dist/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/clicker.vue" afterPath="$PROJECT_DIR$/src/components/clicker.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/data.vue" afterPath="$PROJECT_DIR$/src/components/data.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/stats.vue" afterPath="$PROJECT_DIR$/src/components/stats.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/upgrade.vue" afterPath="$PROJECT_DIR$/src/components/upgrade.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/engine.vue" afterPath="$PROJECT_DIR$/src/services/engine.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -38,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="engine.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="engine.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/engine.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+            <state relative-caret-position="-17">
+              <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding>
                 <element signature="e#28#50#0" expanded="true" />
               </folding>
@@ -65,18 +61,18 @@
       <file leaf-file-name="upgrades.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/upgrades.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="26" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="540">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="data.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/data.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="158" column="24" lean-forward="true" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="24" />
+            <state relative-caret-position="251">
+              <caret line="61" column="28" lean-forward="true" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -95,8 +91,8 @@
       <file leaf-file-name="clicker.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/clicker.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+            <state relative-caret-position="438">
+              <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -105,8 +101,8 @@
       <file leaf-file-name="upgrade.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/upgrade.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            <state relative-caret-position="370">
+              <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -137,15 +133,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/services/engine.js" />
         <option value="$PROJECT_DIR$/src/components/upgrades.vue" />
-        <option value="$PROJECT_DIR$/src/components/upgrade.vue" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/components/clicker.vue" />
         <option value="$PROJECT_DIR$/src/components/stats.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/components/events.vue" />
         <option value="$PROJECT_DIR$/src/services/events.vue" />
-        <option value="$PROJECT_DIR$/src/components/data.vue" />
         <option value="$PROJECT_DIR$/src/services/engine.vue" />
+        <option value="$PROJECT_DIR$/src/components/clicker.vue" />
+        <option value="$PROJECT_DIR$/src/components/upgrade.vue" />
+        <option value="$PROJECT_DIR$/src/components/data.vue" />
       </list>
     </option>
   </component>
@@ -442,12 +438,12 @@
       <workItem from="1484203856225" duration="87000" />
       <workItem from="1484203959515" duration="13000" />
       <workItem from="1484203994579" duration="198000" />
-      <workItem from="1484204202648" duration="7657000" />
+      <workItem from="1484204202648" duration="8602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18493000" />
+    <option name="totallyTimeSpent" value="19438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -776,10 +772,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/upgrade.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/events.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        <state relative-caret-position="221">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/events.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/clicker.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -792,19 +804,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/upgrades.vue">
+    <entry file="file://$PROJECT_DIR$/src/services/engine.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="26" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="-17">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#28#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -818,37 +824,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/clicker.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/upgrades.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="540">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/events.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/upgrade.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        <state relative-caret-position="370">
+          <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/data.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="158" column="24" lean-forward="true" selection-start-line="158" selection-start-column="24" selection-end-line="158" selection-end-column="24" />
+        <state relative-caret-position="251">
+          <caret line="61" column="28" lean-forward="true" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/engine.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
-          <folding>
-            <element signature="e#28#50#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
