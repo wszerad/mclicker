@@ -5,7 +5,7 @@
 				Programuj
 			</p>
 			<p>
-				+ {{engine.click}} / click
+				+ {{engine.click.toFixed(0)}} / click
 			</p>
 		</button>
 	</div>

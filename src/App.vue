@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<header class="app-header">Zaklepane.com</header>
-		<v-stats></v-stats>
 		<v-events></v-events>
+		<header class="app-header">Zaklepane true story</header>
+		<v-stats></v-stats>
 		<v-upgrades></v-upgrades>
 	</div>
 </template>
@@ -39,11 +39,14 @@
 	}
 
 	#app {
+		position: relative;
 		background-color: rgba(255,255,255,0.8);
 		overflow-y: scroll;
 
 		.app-header {
-			font-size: 4rem;
+			font-size: 6rem;
+			font-weight: bold;
+			text-align: center;
 		}
 	}
 </style>

@@ -105,7 +105,7 @@
 		new Boost({
 			title: 'Herbatka',
 			text: 'Nawet nie zaczynaj dnia bez rozpoczęcia tym specyfikiem',
-			cost: '2zł',
+			cost: 'Jak komuś zwędzisz to nawet nie zauważy',
 			performance: 10,
 			realCost: 2,
 			time: 5
@@ -114,17 +114,17 @@
 			title: 'Kawa',
 			text: 'Kiedy starasz się nie robić nic to się nie obejdzie',
 			cost: 'Idzie wyżulić, trzeba dokupić mleko',
-			performance: 10,
+			performance: 15,
 			realCost: 4,
-			time: 90
+			time: 7
 		}),
 		new Boost({
 			title: 'Kawa z wulkanu',
 			text: 'Zaparzanie tylko dla odważnych',
 			cost: '20 muszelek',
-			performance: 0,
+			performance: 12,
 			realCost: 20,
-			time: 90,
+			time: 6,
 			event() {
 				if(isActive('Ekspress') && random(50)) {
 					getItem('Ekspress').active = false;
@@ -133,40 +133,40 @@
 			}
 		}),
 		new Boost({
+			title: 'Kwadrat pizza',
+			text: 'Zamówiłeś raz, więcej nie zamówisz XD',
+			cost: '19zł',
+			performance: 1,
+			realCost: 80,
+			time: 360,
+			event() {
+				this.dependencies = ['Chyba cie pojebało...'];
+				return 'Zamówiłeś raz pizze kwadrat, więcej nie zamówisz XD';
+			}
+		}),
+		new Boost({
 			title: 'Energetyk',
 			text: 'Skoro jest wyprzedaż to wezme zgrzewkę, starczy na dłużej',
 			cost: '1,89zł w carrefour',
 			performance: 20,
 			realCost: 80,
-			time: 3600
-		}),
-		new Boost({
-			title: 'Kwadrat pizza',
-			text: 'Zamówiłeś raz, więcej nie zamówisz XD',
-			cost: '19zł',
-			performance: 20,
-			realCost: 80,
-			time: 3600,
-			event() {
-				this.dependencies = ['Chyba cie pojebało...'];
-				return 'Zamówiłeś raz, więcej nie zamówisz XD';
-			}
+			time: 10
 		}),
 		new Boost({
 			title: 'Chinol',
 			text: 'Małe gang-bang + ostry sos do komara',
 			cost: '14,60zł',
-			performance: 99,
-			realCost: 80,
-			time: 360
+			performance: 50,
+			realCost: 100,
+			time: 20
 		}),
 		new Boost({
 			title: 'Nakurwach Forte',
 			text: 'Działa krótko ale to jedyna szansa żeby wygrać 10 - 0',
 			cost: 'To tajne',
-			performance: 9999,
-			realCost: 100,
-			time: 30,
+			performance: 100,
+			realCost: 200,
+			time: 5,
 			event() {
 				if(random(20)) {
 					engine.clickable = false;
@@ -203,16 +203,16 @@
 			text: 'To tu wypływają największe głupoty :D',
 			cost: 'Warte każde pieniądze',
 			realCost: 200,
-			performance: 200,
+			performance: 120,
 			event() {
 				var self = this;
 				engine.$on('tick', function () {
-					if(!this.disabled && random(4)) {
+					if(!this.disabled && random(3)) {
 						events.emit('Złamałeś drongala, wydajność zespołu spada');
 						self.disabled = true;
 						setTimeout(function() {
 							self.disabled = false;
-						}, 5000);
+						}, 10000);
 					}
 				});
 			}
@@ -233,12 +233,12 @@
 			event() {
 				var self = this;
 				engine.$on('tick', function () {
-					if(!this.disabled && random(4)) {
+					if(!this.disabled && random(3)) {
 						events.emit('Znów ktoś nie umył filtra, traw przesłuchiwanie podejrzanych');
 						self.disabled = true;
 						setTimeout(function() {
 							self.disabled = false;
-						}, 5000);
+						}, 8000);
 					}
 				});
 			}
@@ -280,7 +280,7 @@
 			title: 'COMARCH',
 			text: 'Teraz już możesz zwolnić Profesora i wszystich magistrów',
 			cost: 'Więcej niż to warte',
-			realCost: 100000000,
+			realCost: 10000000,
 			performance: 1000
 		}),
 		new Upgrade({
@@ -303,7 +303,7 @@
 
 	function isActive(name) {
 		return all.some(function (item) {
-			return item.title === name;
+			return item.active && item.title === name;
 		});
 	}
 

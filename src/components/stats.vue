@@ -3,12 +3,6 @@
 		<div class="stats-col row">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Klienci</label>
-					<div class="col-sm-8">
-						<input type="text" class="form-control" disabled v-model="engine.clients">
-					</div>
-				</div>
-				<div class="form-group">
 					<label class="col-sm-4 control-label">Linii kodu / miesiąc</label>
 					<div class="col-sm-8">
 						<input type="text" class="form-control" disabled v-model="engine.performance">
@@ -82,6 +76,7 @@
 <style lang="sass" rel="stylesheet/scss">
 	#stats {
 		display: flex;
+		height: 350px;
 
 		.stats-col {
 			width: 33%;

@@ -5,12 +5,11 @@
 	const engine = new Vue({
 		data(){
 			return {
-				clients: 0,
 				performance: 0,
 				level: 0,
 				lines: 0,
 				multiplier: 1,
-				founds: 100,
+				founds: 10,
 				clicked: 0,
 				clickable: true,
 				devs: [],
@@ -40,7 +39,7 @@
 				}, 1) * this.multiplier;
 			},
 			income() {
-				return this.clients * Math.pow(this.level, 0.5) * 10;
+				return Math.pow(this.level, 3) * 2;
 			}
 		},
 		methods: {
@@ -100,8 +99,7 @@
 				});
 
 				this.multiplier = multiplier;
-				this.performance = perf * multiplier + this.clicked;
-				this.clients += this.level;
+				this.performance = Math.round(perf * multiplier + this.clicked);
 				this.founds += this.income;
 				this.lines += this.performance;
 				this.clicked = 0;

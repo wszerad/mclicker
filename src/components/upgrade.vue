@@ -1,5 +1,5 @@
 <template>
-	<div class="upgrade" @click="activate()" :class="{'active': item.active, 'available': !item.active && available}">
+	<div class="upgrade" @click="activate()" v-show="visible" :class="{'active': item.active, 'available': !item.active && available, 'disabled': item.disabled}">
 		<div v-if="item.active">
 			<header>
 				{{item.title}}
@@ -9,7 +9,12 @@
 			</article>
 		</div>
 		<div v-else>
-			{{item.cost}}
+			<header>
+				Koszt:
+			</header>
+			<article>
+				{{item.cost}}
+			</article>
 		</div>
 	</div>
 </template>
@@ -21,6 +26,21 @@
 		name: 'upgrade',
 		props: ['item'],
 		computed: {
+			visible() {
+				let self = this.item;
+
+				function finder(item) {
+					return self.dependencies.some(function (name) {
+						return item.title === name;
+					});
+				}
+
+				if(self.dependencies.length) {
+					return engine.devs.find(finder) || engine.upgrades.find(finder);
+				} else {
+					return true;
+				}
+			},
 			available() {
 				return this.item.realCost <= engine.founds;
 			}
@@ -54,6 +74,10 @@
 
 		&.available {
 			background-color: #5cb85c;
+		}
+
+		&.disabled {
+			background-color: #ffe60d!important;
 		}
 	}
 </style>
