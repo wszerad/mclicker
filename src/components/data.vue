@@ -73,8 +73,8 @@
 		}),
 		new Dev({
 			title: 'Wszeradeł',
-			text: '',
-			cost: '969€ / miesiąc',
+			text: 'Jebany król elokwencji, kultury i chuj',
+			cost: '666€ / miesiąc',
 			performance: 40,
 			realCost: 4360
 		}),
