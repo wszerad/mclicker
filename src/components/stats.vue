@@ -1,6 +1,6 @@
 <template>
 	<div id="stats">
-		<div class="stats-col">
+		<div class="stats-col row">
 			<form class="form-horizontal">
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Klienci</label>
@@ -28,24 +28,24 @@
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Fundusze</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" disabled v-model="engine.founds">
+						<input type="text" class="form-control" disabled v-model="founds">
 					</div>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" disabled v-model="engine.income">
+						<input type="text" class="form-control" disabled v-model="income">
 					</div>
 				</div>
 			</form>
 		</div>
-		<div class="stats-col">
+		<div class="stats-col row">
 			<v-clicker></v-clicker>
 		</div>
-		<div class="stats-col">
+		<div class="stats-col row">
 			<form class="form-horizontal">
-				<div class="form-group">
-					<label class="col-sm-4 control-label">Koszty</label>
+				<div class="form-group" v-for="boost in engine.boosts">
+					<label class="col-sm-4 control-label">{{boost.item.title}}</label>
 					<div class="col-sm-8">
 						<div class="progress">
-							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width: 40%"></div>
+							<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" :style="{'width': boost.time / boost.maxTime * 100 + '%'}"></div>
 						</div>
 					</div>
 				</div>
@@ -60,6 +60,14 @@
 
 	export default {
 		name: 'stats',
+		computed: {
+			income() {
+				return '+ ' + engine.income.toFixed(2) + 'zł';
+			},
+			founds() {
+				return engine.founds.toFixed(2) + 'zł';
+			}
+		},
 		data() {
 			return {
 				engine

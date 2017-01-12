@@ -1,28 +1,30 @@
 <template>
 	<div id="clicker">
-		<button type="button" class="btn btn-success">
+		<button type="button" class="btn btn-success" @click="code()">
 			<p>
 				Programuj
 			</p>
 			<p>
-				+ {{click}} / click
+				+ {{engine.click}} / click
 			</p>
 		</button>
 	</div>
 </template>
 
 <script type="text/babel">
-	import { click } from '../services/engine.vue';
+	import engine from '../services/engine.vue';
 
 	export default {
 		name: 'clicker',
 		data() {
 			return {
-				click
+				engine
 			};
 		},
-		components: {
-
+		methods: {
+			code() {
+				engine.code();
+			}
 		}
 	}
 </script>

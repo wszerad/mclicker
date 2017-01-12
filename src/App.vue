@@ -2,6 +2,7 @@
 	<div id="app">
 		<header class="app-header">Zaklepane.com</header>
 		<v-stats></v-stats>
+		<v-events></v-events>
 		<v-upgrades></v-upgrades>
 	</div>
 </template>
@@ -9,6 +10,7 @@
 <script type="text/babel">
 	import vStats from './components/stats.vue';
 	import vUpgrades from './components/upgrades.vue';
+	import vEvents from './components/events.vue';
 
 	export default {
 		name: 'app',
@@ -17,7 +19,8 @@
 		},
 		components: {
 			vStats,
-			vUpgrades
+			vUpgrades,
+			vEvents
 		}
 	}
 </script>
@@ -37,6 +40,7 @@
 
 	#app {
 		background-color: rgba(255,255,255,0.8);
+		overflow-y: scroll;
 
 		.app-header {
 			font-size: 4rem;
