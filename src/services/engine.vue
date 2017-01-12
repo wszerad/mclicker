@@ -45,7 +45,7 @@
 		},
 		methods: {
 			activate(item) {
-				if(!item.active && item.realCost <= this.founds) {
+				if(item.active === false && item.realCost <= this.founds) {
 					this.founds -= item.realCost;
 					item.active = true;
 
@@ -62,7 +62,7 @@
 					}
 
 					if(item.event) {
-						let event = item.event();
+						let event = item.event.call(item);
 						if(event) {
 							events.emit(event);
 						}
@@ -71,8 +71,10 @@
 			},
 			recalculate() {
 				let perf = this.devs.reduce(function (perf, item) {
-					console.log(item.performance);
-					perf += item.performance;
+					if(!item.disabled) {
+						perf += item.performance;
+					}
+
 					return perf;
 				}, 0);
 
@@ -92,15 +94,18 @@
 
 				let multiplier = 1;
 				this.upgrades.forEach(function (item) {
-					multiplier *= item.performance / 100;
+					if(!item.disabled) {
+						multiplier *= item.performance / 100;
+					}
 				});
 
-				this.multipler = multiplier;
+				this.multiplier = multiplier;
 				this.performance = perf * multiplier + this.clicked;
 				this.clients += this.level;
 				this.founds += this.income;
 				this.lines += this.performance;
 				this.clicked = 0;
+				this.$emit('tick');
 			},
 			code() {
 				this.lines += this.click;

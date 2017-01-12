@@ -1,5 +1,6 @@
 <script type="text/babel">
 	import engine from '../services/engine.vue';
+	import events from '../services/events.vue';
 
 	class Item {
 		constructor(options) {
@@ -11,6 +12,7 @@
 			this.dependencies = options.dependencies || [];
 			this.performance = options.performance;
 			this.active = false;
+			this.disabled = false;
 			this.event = options.event;
 		}
 	}
@@ -122,7 +124,13 @@
 			cost: '20 muszelek',
 			performance: 0,
 			realCost: 20,
-			time: 90
+			time: 90,
+			event() {
+				if(isActive('Ekspress') && random(50)) {
+					getItem('Ekspress').active = false;
+					return 'Rozdupcyło ekspress';
+				}
+			}
 		}),
 		new Boost({
 			title: 'Energetyk',
@@ -138,7 +146,11 @@
 			cost: '19zł',
 			performance: 20,
 			realCost: 80,
-			time: 3600
+			time: 3600,
+			event() {
+				this.dependencies = ['Chyba cie pojebało...'];
+				return 'Zamówiłeś raz, więcej nie zamówisz XD';
+			}
 		}),
 		new Boost({
 			title: 'Chinol',
@@ -154,14 +166,24 @@
 			cost: 'To tajne',
 			performance: 9999,
 			realCost: 100,
-			time: 30
+			time: 30,
+			event() {
+				if(random(20)) {
+					engine.clickable = false;
+					setTimeout(function() {
+						engine.clickable = true;
+					}, 10000);
+
+					return 'Przedawkowałeś Nakurwach, leżych nagi pod prysznicem';
+				}
+			}
 		})
 	];
 
 	const upgrades = [
 		new Upgrade({
 			title: 'Git Shell',
-			text: '',
+			text: 'Szacunek wśród kolegów mimo że nie ogarniasz',
 			cost: 'Darmowa',
 			realCost: 0,
 			performance: 105,
@@ -177,55 +199,113 @@
 			}
 		}),
 		new Upgrade({
+			title: 'Piłkarzyki',
+			text: 'To tu wypływają największe głupoty :D',
+			cost: 'Warte każde pieniądze',
+			realCost: 200,
+			performance: 200,
+			event() {
+				var self = this;
+				engine.$on('tick', function () {
+					if(!this.disabled && random(4)) {
+						events.emit('Złamałeś drongala, wydajność zespołu spada');
+						self.disabled = true;
+						setTimeout(function() {
+							self.disabled = false;
+						}, 5000);
+					}
+				});
+			}
+		}),
+		new Upgrade({
 			title: 'Webstorm',
 			text: 'Teraz możesz się śmiać z frajerów',
 			cost: 'Edukacyjna jest dla biedaków',
-			realCost: 0,
-			performance: 105
+			realCost: 400,
+			performance: 150
+		}),
+		new Upgrade({
+			title: 'Ekspress',
+			text: 'Szkoda że zapach kawy nie jest w stanie przebić się przez smog',
+			cost: 'Chyba pare milionów bo nie dało się kupić',
+			realCost: 900,
+			performance: 120,
+			event() {
+				var self = this;
+				engine.$on('tick', function () {
+					if(!this.disabled && random(4)) {
+						events.emit('Znów ktoś nie umył filtra, traw przesłuchiwanie podejrzanych');
+						self.disabled = true;
+						setTimeout(function() {
+							self.disabled = false;
+						}, 5000);
+					}
+				});
+			}
 		}),
 		new Upgrade({
 			title: 'Telewizor',
 			text: 'Brakuje już tylko PSa',
-			cost: 'Więcej niż to warte',
-			realCost: 0,
-			performance: 105
-		}),
-		new Upgrade({
-			title: 'Ekspress',
-			text: '',
-			cost: 'Chyba pare milionów bo nie dało się kupić',
-			realCost: 0,
-			performance: 105
+			cost: 'Taniej wychodzi w zestawie',
+			realCost: 2000,
+			performance: 101
 		}),
 		new Upgrade({
 			title: 'Kuchnia',
-			text: '',
-			cost: 'więcej niż to warte',
-			realCost: 0,
+			text: 'Tablica na facebooku się chowa, tylko tu panuje wolność słowa',
+			cost: 'Nieważne, musi być',
+			realCost: 10000,
 			performance: 105
 		}),
 		new Upgrade({
 			title: 'BMW',
-			text: '',
+			text: 'Można dać w pizde aż do następnych świateł',
 			cost: 'Ważne że nowa kosztuje 400k',
-			realCost: 0,
-			performance: 105
-		}),
-		new Upgrade({
-			title: 'Piłkarzyki',
-			text: '',
-			cost: 'Warte każde pieniądze',
-			realCost: 0,
-			performance: 105
+			realCost: 40000,
+			performance: 110,
+			event() {
+				var self = this;
+				engine.$on('tick', function () {
+					if(!this.disabled && random(4)) {
+						events.emit('Wlazłeś w gówno! Przecież tak nie można wsiadać do samochodu');
+						self.disabled = true;
+						setTimeout(function() {
+							self.disabled = false;
+						}, 5000);
+					}
+				});
+			}
 		}),
 		new Upgrade({
 			title: 'COMARCH',
-			text: '',
-			cost: 'więcej niż to warte',
+			text: 'Teraz już możesz zwolnić Profesora i wszystich magistrów',
+			cost: 'Więcej niż to warte',
+			realCost: 100000000,
+			performance: 1000
+		}),
+		new Upgrade({
+			title: 'Zwolnij Profesora',
+			text: 'Teraz już możesz zwolnić Profesora i wszystich magistrów',
+			cost: 'Bezcenne',
 			realCost: 0,
-			performance: 105
+			performance: 10000,
+			dependencies: ['COMARCH']
 		})
 	];
+
+	const all = [].concat(devs, boosts, upgrades);
+
+	function getItem(name) {
+		return all.find(function (item) {
+			return item.title === name;
+		})
+	}
+
+	function isActive(name) {
+		return all.some(function (item) {
+			return item.title === name;
+		});
+	}
 
 	function random(chance) {
 		return Math.random() < (chance / 100);
